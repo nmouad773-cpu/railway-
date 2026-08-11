@@ -22,7 +22,7 @@ const CHANNELS = {
   "al-thamnia-1": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181611.ts",
   "al-thamnia-2": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181612.ts",
   "al-thamnia-3": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181684.ts",
-  "mbc2": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/434733.ts",
+  "mbc2": "http://xlion.net:8080/live/15034094901029/18800196589372/45168.ts",
   "mbc3": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/434734.ts",
   "mbc4": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/434735.ts",
   "mbc5": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/434736.ts",
