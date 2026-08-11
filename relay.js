@@ -22,15 +22,15 @@ const CHANNELS = {
   "al-thamnia-1": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181611.ts",
   "al-thamnia-2": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181612.ts",
   "al-thamnia-3": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181684.ts",
-  "mbc2": "http://20062026.net:8089/live/8653942962109/3601849182703/163.ts",
-  "mbc3": "http://20062026.net:8089/live/8653942962109/3601849182703/162.ts",
-  "mbc4": "http://20062026.net:8089/live/8653942962109/3601849182703/161.ts",
-  "mbc5": "http://20062026.net:8089/live/8653942962109/3601849182703/164.ts",
-  "al-aoula": "http://20062026.net:8089/live/8653942962109/3601849182703/185.ts",
-  "2m-maroc": "http://20062026.net:8089/live/8653942962109/3601849182703/228.ts",
-  "arryadia-hd": "http://20062026.net:8089/live/8653942962109/3601849182703/208.ts",
+  "mbc2": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/434733.ts",
+  "mbc3": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/434734.ts",
+  "mbc4": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/434735.ts",
+  "mbc5": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/434736.ts",
+  "al-aoula": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/415503.ts",
+  "2m-maroc": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/415506.ts",
+  "arryadia-hd": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/415508.ts",
   "quran": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/66506.ts",
-  "national-geographic": "http://20062026.net:8089/live/8653942962109/3601849182703/85693149.ts"
+  "national-geographic": "http://hookpro.store/live/oRKwpNmhr5/6iTHLyMJRf/612298.ts"
 };
 
 // Map to store active channel relay instances
