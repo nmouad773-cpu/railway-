@@ -22,15 +22,15 @@ const CHANNELS = {
   "al-thamnia-1": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181611.ts",
   "al-thamnia-2": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181612.ts",
   "al-thamnia-3": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181684.ts",
-  "mbc2": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/45168.ts",
-  "mbc3": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/45143.ts",
-  "mbc4": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/45164.ts",
-  "mbc5": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/92759.ts",
-  "al-aoula": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/414001.ts",
-  "2m-maroc": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/414000.ts",
+  "mbc2": "http://20062026.net:8089/live/8653942962109/3601849182703/163.ts",
+  "mbc3": "http://20062026.net:8089/live/8653942962109/3601849182703/162.ts",
+  "mbc4": "http://20062026.net:8089/live/8653942962109/3601849182703/161.ts",
+  "mbc5": "http://20062026.net:8089/live/8653942962109/3601849182703/164.ts",
+  "al-aoula": "http://20062026.net:8089/live/8653942962109/3601849182703/185.ts",
+  "2m-maroc": "http://20062026.net:8089/live/8653942962109/3601849182703/228.ts",
   "arryadia-hd": "http://20062026.net:8089/live/8653942962109/3601849182703/208.ts",
   "quran": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/66506.ts",
-  "national-geographic": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/736.ts"
+  "national-geographic": "http://20062026.net:8089/live/8653942962109/3601849182703/85693149.ts"
 };
 
 // Map to store active channel relay instances
