@@ -1,7 +1,7 @@
 const http = require("http");
 const { spawn } = require("child_process");
 
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8080;
 
 // ============================================================
 // CHANNELS
