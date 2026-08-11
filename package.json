@@ -1,0 +1,9 @@
+{
+  "name": "dragon-live-relay",
+  "version": "1.0.0",
+  "description": "Dragon Live Relay",
+  "main": "relay.js",
+  "scripts": {
+    "start": "node relay.js"
+  }
+}
