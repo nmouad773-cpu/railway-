@@ -1,48 +1,49 @@
 const http = require("http");
 const { spawn } = require("child_process");
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 9000;
 
 // ============================================================
-// UPDATED CHANNELS LIST
+// CHANNELS LIST
 // ============================================================
 
 const CHANNELS = {
-  "bein-news": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/443146.ts",
-  "bein1": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/325793.ts",
-  "bein2": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/325794.ts",
-  "bein3": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/325795.ts",
-  "bein4": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/325796.ts",
-  "bein5": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/325797.ts",
-  "bein6": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/325798.ts",
-  "bein7": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/325799.ts",
-  "bein8": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/325800.ts",
-  "bein-movies-1": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/319672.ts",
-  "bein-movies-2": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/319673.ts",
-  "al-thamnia-1": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/421785.ts",
-  "al-thamnia-2": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/421786.ts",
-  "al-thamnia-3": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/429403.ts",
-  "mbc2": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/45168.ts",
-  "mbc3": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/45143.ts",
-  "mbc4": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/45164.ts",
-  "mbc5": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/92759.ts",
-  "al-aoula": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/413999.ts",
-  "2m-maroc": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/414001.ts",
+  "bein-news": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/166015.ts",
+  "bein1": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/233874.ts",
+  "bein2": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/233875.ts",
+  "bein3": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/233876.ts",
+  "bein4": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/233877.ts",
+  "bein5": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/233878.ts",
+  "bein6": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/233879.ts",
+  "bein7": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/233880.ts",
+  "bein8": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/233881.ts",
+  "bein-movies-1": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/10148.ts",
+  "bein-movies-2": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/10150.ts",
+  "al-thamnia-1": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181611.ts",
+  "al-thamnia-2": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181612.ts",
+  "al-thamnia-3": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/181684.ts",
+  "mbc2": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/723.ts",
+  "mbc3": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/41070.ts",
+  "mbc4": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/719.ts",
+  "mbc5": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/220110.ts",
+  "al-aoula": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/1102.ts",
+  "2m-maroc": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/166512.ts",
   "arryadia-hd": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/187244.ts",
-  "quran": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/413749.ts",
-  "national-geographic": "http://185.191.126.127:8080/live/b0:99:d7:15:88:50/3090914536649669/15026.ts"
+  "quran": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/66506.ts",
+  "national-geographic": "http://pro.netmos.ovh:7355/live/UDJPRCRA1L055B/Ep27yiiwbb56mjkl/736.ts"
 };
 
 // Map to store active channel state
 const activeRelays = new Map();
 
 // ============================================================
-// RELAY ENGINE (AUTO RECONNECT & STREAM PERSISTENCE)
+// RELAY ENGINE
 // ============================================================
 
 function getOrCreateRelay(name, source) {
   if (activeRelays.has(name)) {
     const relay = activeRelays.get(name);
+    // Clear idle timeout if a new client connects
     if (relay.idleTimer) {
       clearTimeout(relay.idleTimer);
       relay.idleTimer = null;
@@ -70,13 +71,13 @@ function startFFmpeg(relay) {
     return;
   }
 
-  console.log(`[${relay.name}] 🚀 Starting FFmpeg relay engine...`);
+  console.log(`[${relay.name}] 🚀 Spawning FFmpeg instance...`);
 
   const ffmpeg = spawn("ffmpeg", [
     "-hide_banner",
     "-loglevel", "warning",
 
-    // Read input at native frame rate
+    // Native frame rate read
     "-re",
 
     // Advanced HTTP Reconnection flags
@@ -85,24 +86,24 @@ function startFFmpeg(relay) {
     "-reconnect_streamed", "1",
     "-reconnect_delay_max", "3",
 
-    // Timeout duration (10 seconds)
+    // Read/Write Timeout (10 seconds)
     "-rw_timeout", "10000000",
 
-    // Faster stream probe for minimal startup delay
+    // Lower analyze duration for faster recovery
     "-probesize", "1000000",
     "-analyzeduration", "1000000",
 
     // Input Source
     "-i", relay.source,
 
-    // Stream Selection
+    // Map streams
     "-map", "0:v:0?",
     "-map", "0:a:0?",
 
-    // Direct Copy Mode (No re-encoding / Low CPU)
+    // Stream Copy Mode
     "-c", "copy",
 
-    // Continuous TS Header broadcasting
+    // Output MPEG-TS with keyframe headers
     "-f", "mpegts",
     "-mpegts_flags", "resend_headers",
 
@@ -113,7 +114,7 @@ function startFFmpeg(relay) {
 
   relay.ffmpeg = ffmpeg;
 
-  // Broadcast stream chunks to all connected client responses
+  // Stream data broadcast to all active response objects
   ffmpeg.stdout.on("data", (chunk) => {
     for (const client of relay.clients) {
       if (client.writable) {
@@ -122,21 +123,21 @@ function startFFmpeg(relay) {
     }
   });
 
-  // Log ffmpeg process errors/warnings
+  // Logging
   ffmpeg.stderr.on("data", (data) => {
     const msg = data.toString().trim();
     if (msg) console.log(`[${relay.name}] ${msg}`);
   });
 
-  // Automatically handle source failures or process exits
+  // Handle Exit / Crashes
   ffmpeg.on("exit", (code, signal) => {
-    console.log(`[${relay.name}] ⚠️ FFmpeg source lost (code=${code}, signal=${signal})`);
+    console.log(`[${relay.name}] ⚠️ FFmpeg process stopped (code=${code}, signal=${signal})`);
     relay.ffmpeg = null;
 
-    // Auto-reconnect if viewers are still listening
+    // Auto-restart if clients are still connected
     if (relay.clients.size > 0 && !relay.isRestarting) {
       relay.isRestarting = true;
-      console.log(`[${relay.name}] 🔄 Reconnecting upstream source in 2 seconds...`);
+      console.log(`[${relay.name}] 🔄 Auto-reconnecting upstream source in 2 seconds...`);
       
       setTimeout(() => {
         relay.isRestarting = false;
@@ -153,13 +154,13 @@ function startFFmpeg(relay) {
 }
 
 function stopRelayIfIdle(relay) {
-  // If no active clients remain, clean up process after 30 seconds
+  // If no active clients, wait 30 seconds before killing FFmpeg to save bandwidth/RAM
   if (relay.clients.size === 0) {
     if (relay.idleTimer) clearTimeout(relay.idleTimer);
 
     relay.idleTimer = setTimeout(() => {
       if (relay.clients.size === 0) {
-        console.log(`[${relay.name}] 💤 Channel idle. Stopping process.`);
+        console.log(`[${relay.name}] 💤 No active clients. Stopping relay to conserve resources.`);
         if (relay.ffmpeg) {
           try {
             relay.ffmpeg.kill("SIGKILL");
@@ -167,7 +168,7 @@ function stopRelayIfIdle(relay) {
         }
         activeRelays.delete(relay.name);
       }
-    }, 30000);
+    }, 30000); // 30 seconds idle buffer
   }
 }
 
@@ -183,7 +184,7 @@ const server = http.createServer((req, res) => {
     return res.end("Channel not found");
   }
 
-  // Get or spawn stream
+  // Get or initialize stream
   const relay = getOrCreateRelay(channel, CHANNELS[channel]);
 
   // Headers for persistent MPEG-TS streaming
@@ -199,7 +200,7 @@ const server = http.createServer((req, res) => {
 
   relay.clients.add(res);
 
-  // Clean up client on disconnect
+  // Handle client disconnection
   const cleanup = () => {
     if (relay.clients.has(res)) {
       relay.clients.delete(res);
@@ -223,8 +224,8 @@ server.listen(PORT, "0.0.0.0", () => {
   console.log("       DRAGON STABLE RELAY ENGINE         ");
   console.log("==========================================");
   console.log(`Port: ${PORT}`);
-  console.log(`Channels Loaded: ${Object.keys(CHANNELS).length}`);
-  console.log("Status: READY");
+  console.log(`Channels: ${Object.keys(CHANNELS).length}`);
+  console.log("Reconnection Strategy: Keep-Alive HTTP Connection");
   console.log("==========================================");
   console.log("");
 });
@@ -233,6 +234,7 @@ function shutdown() {
   console.log("\n🛑 Graceful shutdown initiated...");
 
   for (const [name, relay] of activeRelays) {
+    console.log(`[${name}] Terminating FFmpeg...`);
     if (relay.ffmpeg) {
       try {
         relay.ffmpeg.kill("SIGKILL");
@@ -241,7 +243,7 @@ function shutdown() {
   }
 
   server.close(() => {
-    console.log("Server stopped successfully.");
+    console.log("Server closed successfully.");
     process.exit(0);
   });
 }
